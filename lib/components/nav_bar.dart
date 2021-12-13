@@ -5,7 +5,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:outline_gradient_button/outline_gradient_button.dart';
 
 class NavBar extends StatefulWidget {
-  const NavBar({Key? key}) : super(key: key);
+  const NavBar({
+    Key? key,
+    this.title = "Title",
+    this.capital_letter = "C",
+  }) : super(key: key);
+
+  final String title;
+  final String capital_letter;
 
   @override
   _NavBarState createState() => _NavBarState();
@@ -19,7 +26,7 @@ class _NavBarState extends State<NavBar> {
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
         child: Container(
-          padding: EdgeInsets.only(top: 30, left: 20, right: 20),
+          padding: EdgeInsets.only(top: 20, left: 20, right: 20),
           child: Row(children: [
             SizedBox(width: 20),
             Expanded(
@@ -38,7 +45,7 @@ class _NavBarState extends State<NavBar> {
                                   BorderRadius.all(Radius.circular(10))),
                           child: Center(
                             child: Text(
-                              "K",
+                              NavBar().capital_letter,
                               style: GoogleFonts.ubuntu(
                                   color: Colors.black,
                                   fontSize: 40,
@@ -48,7 +55,7 @@ class _NavBarState extends State<NavBar> {
                         )),
                     SizedBox(width: 30),
                     Text(
-                      "Konnect.",
+                      NavBar().title,
                       style: GoogleFonts.ubuntu(
                           fontSize: 36, fontWeight: FontWeight.w500),
                     ),
@@ -60,10 +67,13 @@ class _NavBarState extends State<NavBar> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   SizedBox(width: 50),
-                  Text(
-                    "Features",
-                    style:
-                        GoogleFonts.nunito(color: Colors.black, fontSize: 20),
+                  InkWell(
+                    onTap: () {},
+                    child: Text(
+                      "Features",
+                      style:
+                          GoogleFonts.nunito(color: Colors.black, fontSize: 20),
+                    ),
                   ),
                   SizedBox(width: 50),
                   Text(
